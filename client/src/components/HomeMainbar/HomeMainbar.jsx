@@ -12,7 +12,7 @@ const HomeMainbar = () => {
     const navigate = useNavigate()
 
     React.useEffect(() => {
-        axios.get("http://localhost:5050/questions/get").then((response) => {
+        axios.get("https://stack-overflow-fan3.onrender.com").then((response) => {
             questionsList=response.data;
         //   console.log(response.data);
         });
