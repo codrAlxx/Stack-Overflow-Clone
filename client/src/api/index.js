@@ -3,6 +3,7 @@ import axios from 'axios'
 const API = axios.create({ baseURL: 'https://stack-overflow-fan3.onrender.com'})
 
 API.interceptors.request.use((req) => {
+    console.log(req.url);
     if(localStorage.getItem('Profile')){
         req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem('Profile')).token}`
     }
