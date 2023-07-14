@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API = axios.create({ baseURL: 'https://stack-overflow-fan3.onrender.com'})
+const API = axios.create({ baseURL: "http://localhost:5050"})
 
 API.interceptors.request.use((req) => {
     console.log(req.url);
