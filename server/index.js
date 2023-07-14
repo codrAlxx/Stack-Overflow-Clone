@@ -3,7 +3,7 @@ import chalk from "chalk";
 import cors from 'cors'
 import dotenv from 'dotenv'
 import mongoose from "mongoose";
-
+import connectionToDB from './config/connectDB.js';
 import userRoutes from './routes/users.js'
 import questionRoutes from './routes/Questions.js'
 import answerRoutes from './routes/Answers.js'
@@ -22,29 +22,8 @@ app.get('/',(req, res) => {
 })
 
 
-const connectionToDB = async () => {
-	try {
-		const connectionParams = {
-			dbName: process.env.DB_NAME,
-		};
-		const connect = await mongoose.connect(
-			process.env.CONNECTION_URL,
-			connectionParams
-		);
-		console.log(
-			`${chalk.blue.bold(
-				`MongoDB Connected: ${connect.connection.host}`
-			)}`
-		);
-	} catch (error) {
-		console.error(`${chalk.red.bold(`Error: ${error.message}`)}`);
-		process.exit(1);
-	}
-};
 
-connectionToDB();
-
-await connectionToDB
+await connectionToDB()
 
 app.use('/user', userRoutes)
 app.use('/questions', questionRoutes)

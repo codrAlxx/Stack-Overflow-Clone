@@ -10,9 +10,11 @@ const connectionToDB = async () => {
 			process.env.CONNECTION_URL,
 			connectionParams
 		);
+		// console.log(process.env.CONNECTION_URL)
+
 		console.log(
 			`${chalk.blue.bold(
-				`MongoDB Connected: ${connect.connection.host}`
+				`MongoDB Hello Connected: ${connect.connection.host}`
 			)}`
 		);
 	} catch (error) {
