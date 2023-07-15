@@ -57,41 +57,14 @@ const Navbar = () => {
             </Link>
             <form>
               {showSearch && <input type="text" placeholder="Search..." />}
-              <img
-                src={search}
-                alt="search"
-                className={`search-icon ${
-                  showSearch ? "search-icon-active" : ""
-                }`}
-                onClick={() => setShowSearch(!showSearch)}
-              />
             </form>
-            {!User ? (
-              <Link
-                to="/Auth"
-                className="nav-item nav-links"
-                style={{ textDecoration: "none" }}
-              >
-                Log in
-              </Link>
-            ) : (
-              <>
-                <Avatar classname={"avatar-user-nav"}>
-                  <Link
-                    to={`/Users/${User?._id}`}
-                    style={{
-                      color: "white",
-                      textDecoration: "none",
-                    }}
-                  >
-                    <p>{User?.name[0].toUpperCase()}</p>
-                  </Link>
-                </Avatar>
-                <button className="nav-item nav-links" onClick={handleLogout}>
-                  Log out
-                </button>
-              </>
-            )}
+            { User === null ? 
+                    <Link to='/Auth' className='nav-item nav-links'>Log in</Link> : 
+                    <>
+                        <Avatar backgroundColor='#009dff' px="10px" py="7px" borderRadius="50%" color='white'><Link to={`/Users/${User?._id}`} style={{color:"white", textDecoration:'none'}}>{User?.name.charAt(0).toUpperCase()}</Link></Avatar>
+                        <button className='nav-item nav-links' onClick={handleLogout}>Log out</button>
+                    </>
+            }
           </div>
         </div>
       </nav>
