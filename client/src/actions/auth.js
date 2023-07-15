@@ -26,10 +26,11 @@ export const login = (authData, navigate) => async (dispatch) => {
     }
 }
 
-export const sendUserOtp = () => async (dispatch) => {
+export const sendUserOtp = (data) => async (dispatch) => {
     try {
+      console.log(data)
       dispatch({ type: "START_LOADING" });
-      await api.sendOtp();
+      await api.sendOtp(data);
       dispatch({ type: "END_LOADING" });
       dispatch({ type: "RESET_ERROR" });
     } catch (error) {
@@ -43,10 +44,10 @@ export const sendUserOtp = () => async (dispatch) => {
     }
   };
   
-  export const verifyUserOtp = (otp) => async (dispatch) => {
+  export const verifyUserOtp = (otp, email) => async (dispatch) => {
     try {
       dispatch({ type: "START_LOADING" });
-      const { data } = await api.verifyUser(otp);
+      const { data } = await api.verifyUser({code: otp, email});
       dispatch({ type: "END_LOADING" });
       dispatch({ type: "UPDATE_AUTH_VERIFY", data: data.user });
       useLocalStorage(data.user);

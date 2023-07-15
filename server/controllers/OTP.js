@@ -67,22 +67,35 @@ export const sendOtp = async (req,res) => {
 }
 
 export const verifyOtp = async (req,res) => {
-
+    console.log(req.body)
     const { email, code } = req.body;
-    console.log(req.body);
+    const userId = req.userId;
+    // console.log(userId)
+    // console.log(req.body);
+    const user = await users.findById(userId);
+
     try{
-        //we verify the otp
         const existinguser = await otp.find({email: email, code: code});
-        console.log(existinguser);
+        //we verify the otp
+        // console.log(existinguser);
         if(existinguser.length === 0){
+            console.log("Wrong OTP")
             return res.status(200).json({message: "code not found", verified: false})
         } else {
             let currentTime = new Date().getTime();
             let diff = existinguser.expireIn - currentTime;
             if(diff < 0){
+                console.log("Expired")
                 res.status(200).json({message: "otp has expired", verified: false});
             } else {
-                res.status(200).json({verified: true});
+                console.log(user)
+                user.verified = true;
+                await user.save();
+                return res.status(201).json({
+                  success: true,
+                  user: user,
+                });
+                // res.status(200).json({verified: true});
             }
         }
     } catch(err){

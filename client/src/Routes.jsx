@@ -23,7 +23,7 @@ const AllRoutes = () => {
             <Route path='/Tags' element={<Tags />} />
             <Route path='/Users' element={<Users />} />
             <Route path='/Users/:id' element={<UserProfile />} />
-            <Route path="/chatai" element={<ChatAI />} />
+            <Route path="/chatAi" element={<ChatAI />} />
             <Route path="/verify" element={<Verify />} />
 
 

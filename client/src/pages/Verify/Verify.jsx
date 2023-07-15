@@ -15,21 +15,26 @@ const Verify = () => {
 
   const { loading, location } = useSelector((state) => state.loadingReducer);
   const user = useSelector((state) => state.currentUserReducer);
+  const [userId, setUserId] = useState(user?.result?._id)
+  const [email, setEmail] = useState(user?.result?.email)
+  const [isVerfied, setIsVerfied] = useState(user?.result?.verified)
+  console.log(isVerfied)
 
   useEffect(() => {
-    if (user.verified) {
+    if (isVerfied) {
+      console.log("In navigate")
       navigate(`/ChatAi`);
     }
-  }, [user.verified, navigate]);
+  }, [isVerfied, navigate]);
 
   const handleVerify = () => {
-    dispatch(sendUserOtp());
+    dispatch(sendUserOtp({userId,email}));
     setShowOtp(true);
   };
 
   const handleOtpVerification = useCallback(
     (otp) => {
-      dispatch(verifyUserOtp(otp.trim()));
+      dispatch(verifyUserOtp(otp.trim(), email));
     },
     [dispatch]
   );

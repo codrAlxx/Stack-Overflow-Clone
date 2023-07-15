@@ -16,8 +16,8 @@ API.interceptors.request.use((req) => {
 //  * User routes
 export const logIn = (authData) => API.post("/user/login", authData);
 export const signUp = (authData) => API.post("/user/signup", authData);
-export const sendOtp = () => API.get("/otp/send-otp");
-export const verifyUser = (otp) => API.post("/otp/verify-otp", { otp });
+export const sendOtp = (data) => API.post("/otp/send-otp", data);
+export const verifyUser = (data) => API.post("/otp/verify-otp", data);
 
 
 //  * questions routes

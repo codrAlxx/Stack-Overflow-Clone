@@ -17,21 +17,21 @@ const ChatAI = () => {
 
   const { scrollToBottom, showDownBtn } = useScrollToBottom();
 
-  useEffect(() => {
-    console.log(currentUser, "chat");
-    if (!currentUser && !isNavigate.current) {
-      isNavigate.current = true;
-      navigate("/auth");
-      alert("login to access Chat AI");
-    }
-    console.log(currentUser);
-  }, [navigate, currentUser]);
+  // useEffect(() => {
+  //   console.log(currentUser, "chat");
+  //   if (!currentUser && !isNavigate.current) {
+  //     isNavigate.current = true;
+  //     navigate("/auth");
+  //     alert("login to access Chat AI");
+  //   }
+  //   console.log(currentUser);
+  // }, [navigate, currentUser]);
 
-  useEffect(() => {
-    if (currentUser && !currentUser.verified) {
-      navigate("/verify");
-    }
-  }, [currentUser, navigate]);
+  // useEffect(() => {
+  //   if (currentUser && !currentUser.verified) {
+  //     navigate("/verify");
+  //   }
+  // }, [currentUser, navigate]);
 
   return (
     <div className="home-container-1">

@@ -31,7 +31,7 @@ export const ChatCodeBox = ({ codeString }) => {
               setIsCopied(true);
             }}
           >
-            <button>{isCopied ? "Copied ✅" : "Copy code"}</button>
+            <button>{isCopied ? "Copied ✅" : "Copy Text"}</button>
           </CopyToClipboard>
         </div>
       </div>
