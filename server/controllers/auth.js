@@ -5,8 +5,6 @@ import users from '../models/auth.js'
 
 export const signup = async (req, res) => {
 
-    console.log("Signup Backend API")
-
     const { name, email, password } = req.body;
     try{
         const existinguser = await users.findOne({ email });
