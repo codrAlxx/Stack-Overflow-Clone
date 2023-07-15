@@ -15,12 +15,11 @@ const ChatAI = () => {
   const navigate = useNavigate();
   const isNavigate = useRef(false);
 
-  const [isVerified, SetIsVerified] = useState(currentUser?.result?.verified);
-  console.log(currentUser)
+  const [isVerified, SetIsVerified] = useState(currentUser?.verified);
   const { scrollToBottom, showDownBtn } = useScrollToBottom();
 
   useEffect(() => {
-    console.log(currentUser, "chat");
+    // console.log(currentUser, "chat");
     if (!currentUser && !isNavigate.current) {
       isNavigate.current = true;
       navigate("/auth");
@@ -44,7 +43,7 @@ const ChatAI = () => {
           <div className="chat-message-container">
             <ChatViewer />
           </div>
-          <ChatAiInput />
+      
 
           <div
             className="go-down-container"
@@ -56,6 +55,7 @@ const ChatAI = () => {
             </div>
           </div>
         </div>
+        <ChatAiInput />
       </div>
     </div>
   );

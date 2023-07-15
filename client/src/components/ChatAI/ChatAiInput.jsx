@@ -14,9 +14,9 @@ export const ChatAiInput = () => {
     console.log(value, "value");
   };
 
-  useEffect(() => {
-    console.log(error, "error");
-  }, [error]);
+  // useEffect(() => {
+  //   console.log(error, "error");
+  // }, [error]);
 
   useEffect(() => {
     const value =

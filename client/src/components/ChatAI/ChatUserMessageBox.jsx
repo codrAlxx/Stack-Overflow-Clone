@@ -8,12 +8,13 @@ export const ChatUserMessageBox = ({ message }) => {
   return (
     <div className="chat-message-box">
       <div className="w-10">
-      <Avatar className={"avatar-user-nav"} backgroundColor='#009dff' px="10px" py="7px" borderRadius="50%" color='white'>{currentUser?.result?.name?.charAt(0).toUpperCase()}</Avatar>
+      <Avatar className={"avatar-user-nav"} backgroundColor='#009dff' px="10px" py="7px" borderRadius="50%" color='white' padding='10px'>{currentUser?.name?.charAt(0).toUpperCase()}</Avatar>
         {/* <Avatar classname={"avatar-user-nav"}>
           {currentUser ? currentUser?.result?.name[0] : ":("}
         </Avatar> */}
+        <p className="message-box">{message}</p>
       </div>
-      <p className="message-box">{message}</p>
+      
     </div>
   );
 };

@@ -15,15 +15,16 @@
   }
   
   .w-10 {
-    width: 35px;
+    display: flex;
+  }
+  
+  .message-box {
+    padding:0 10px 10px 0;
+
   }
   
   .p-10 {
     padding-top: 10px;
-  }
-  
-  .message-box {
-    width: 100%;
   }
   
   .chat-empty-con {
