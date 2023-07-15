@@ -15,10 +15,12 @@ const Verify = () => {
 
   const { loading, location } = useSelector((state) => state.loadingReducer);
   const user = useSelector((state) => state.currentUserReducer);
-  const [userId, setUserId] = useState(user?.result?._id)
-  const [email, setEmail] = useState(user?.result?.email)
-  const [isVerfied, setIsVerfied] = useState(user?.result?.verified)
-  console.log(isVerfied)
+  // console.log(user)
+  const [userId, setUserId] = useState(user?._id)
+  const [email, setEmail] = useState(user?.email)
+  const [isVerfied, setIsVerfied] = useState(user?.verified)
+  const [code,SetCode]=useState("")
+  // console.log({userId,email,isVerfied})
 
   useEffect(() => {
     if (isVerfied) {
@@ -34,7 +36,8 @@ const Verify = () => {
 
   const handleOtpVerification = useCallback(
     (otp) => {
-      dispatch(verifyUserOtp(otp.trim(), email));
+      SetCode(otp)
+      dispatch(verifyUserOtp({code, email}));
     },
     [dispatch]
   );

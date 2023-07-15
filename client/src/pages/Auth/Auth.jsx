@@ -22,7 +22,7 @@ const Auth = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log({name,email,password})
+        // console.log({name,email,password})
         if(!email && !password){
             alert('Enter email and password')
         }
