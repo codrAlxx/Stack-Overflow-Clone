@@ -52,6 +52,7 @@ export const verifyUserOtp = (OtpData) => async (dispatch) => {
     console.log("In verify OTP")
     console.log(OtpData)
     const { data } = await api.verifyUser(OtpData);
+    console.log(data);
     dispatch({ type: "END_LOADING" });
     dispatch({ type: "UPDATE_AUTH_VERIFY", data: data.user });
     useLocalStorage(data.user);

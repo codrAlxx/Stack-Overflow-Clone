@@ -19,28 +19,33 @@ const Verify = () => {
   const [userId, setUserId] = useState(user?._id)
   const [email, setEmail] = useState(user?.email)
   const [isVerfied, setIsVerfied] = useState(user?.verified)
-  const [code,SetCode]=useState("")
   // console.log({userId,email,isVerfied})
 
   useEffect(() => {
-    if (isVerfied) {
+    if (user.verified) {
       console.log("In navigate")
       navigate(`/ChatAi`);
     }
-  }, [isVerfied, navigate]);
+  }, [user.verified, navigate]);
 
   const handleVerify = () => {
     dispatch(sendUserOtp({userId,email}));
     setShowOtp(true);
   };
 
-  const handleOtpVerification = useCallback(
-    (otp) => {
-      SetCode(otp)
-      dispatch(verifyUserOtp({code, email}));
-    },
-    [dispatch]
-  );
+  const handleOtpVerification = (code) => {
+    dispatch(verifyUserOtp({code,email}))
+    console.log({userId,email,isVerfied})
+  }
+
+  // const handleOtpVerification = useCallback(
+  //   (otp) => {
+  //     console.log(otp);
+  //     SetCode(otp);
+  //     dispatch(verifyUserOtp({code, email}));
+  //   },
+  //   [dispatch]
+  // );
 
   return (
     <div className="home-container-1">

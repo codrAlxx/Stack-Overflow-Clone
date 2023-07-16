@@ -71,13 +71,13 @@ export const verifyOtp = async (req,res) => {
     const { email, code } = req.body;
     const userId = req.userId;
     // console.log(userId)
-    // console.log(req.body);
+    console.log(req.body);
     const user = await users.findById(userId);
 
     try{
         const existinguser = await otp.find({email: email, code: code});
         //we verify the otp
-        // console.log(existinguser);
+        console.log(existinguser);
         if(existinguser.length === 0){
             console.log("Wrong OTP")
             return res.status(200).json({message: "code not found", verified: false})
