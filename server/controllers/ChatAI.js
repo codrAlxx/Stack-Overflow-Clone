@@ -8,7 +8,7 @@ import { Configuration, OpenAIApi } from "openai";
 
 export const postChat = async (req, res) => {
   const userId = req.userId;
-  console.log(userId)
+  // console.log(userId)
   const { message } = req.body;
 
   if (!Types.ObjectId.isValid(userId)) {
@@ -64,6 +64,7 @@ export const postChat = async (req, res) => {
 
 export const getChat = async (req, res) => {
   const userId = req.userId;
+  console.log(userId);
   try {
     if (!Types.ObjectId.isValid(userId)) {
       res.status(401).json({
@@ -72,7 +73,15 @@ export const getChat = async (req, res) => {
       });
       return;
     }
-    const chat = await Chat.findOne({ userId }).lean();
+    const data = await Chat.find({userId: userId}).lean()
+    if (!data.chat) {
+      res.status(404).json({
+        success: false,
+        message: "chat not found",
+      });
+      return;
+    }
+    const chat = data[0]?.chat;
     if (!chat) {
       res.status(404).json({
         success: false,

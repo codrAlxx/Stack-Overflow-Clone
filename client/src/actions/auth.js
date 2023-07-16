@@ -20,7 +20,7 @@ export const login = (authData, navigate) => async (dispatch) => {
   try {
     const { data } = await api.logIn(authData);
     dispatch({ type: "AUTH", data });
-    console.log(data.result, "login");
+    // console.log(data.result, "login");
     dispatch(setCurrentUser(data));
     navigate(-1);
   } catch (error) {

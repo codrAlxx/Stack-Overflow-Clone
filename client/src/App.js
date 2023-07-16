@@ -16,9 +16,10 @@ function App() {
   useEffect(() => {
     dispatch(fetchAllQuestions());
     dispatch(fetchAllUsers());
-    dispatch(fetchChat());
+
     const user = JSON.parse(localStorage.getItem("Profile"));
     if (user?.result) dispatch(setCurrentUser(user.result));
+    dispatch(fetchChat());
   }, [dispatch]);
 
   return (

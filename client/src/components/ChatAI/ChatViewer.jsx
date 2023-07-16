@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { ChatEmpty } from "./ChatEmpty";
 import { ChatLoading } from "./ChatLoading";
 export const ChatViewer = () => {
+
 const chatAi = useSelector((state) => state.chatReducer);
 
   useEffect(() => {

@@ -67,11 +67,11 @@ export const sendOtp = async (req,res) => {
 }
 
 export const verifyOtp = async (req,res) => {
-    console.log(req.body)
+    // console.log(req.body)
     const { email, code } = req.body;
     const userId = req.userId;
     // console.log(userId)
-    console.log(req.body);
+    // console.log(req.body);
     const user = await users.findById(userId);
 
     try{
@@ -88,7 +88,7 @@ export const verifyOtp = async (req,res) => {
                 console.log("Expired")
                 res.status(200).json({message: "otp has expired", verified: false});
             } else {
-                console.log(user)
+                // console.log(user)
                 user.verified = true;
                 await user.save();
                 return res.status(201).json({

@@ -18,9 +18,12 @@ export const fetchChat = () => async (dispatch) => {
   try {
     dispatch({ type: "RESET_ERROR" });
     dispatch({ type: "CHAT_START_LOADING" });
+    console.log("In fectch chat")
     const { data } = await api.getChat();
-    const { chat } = data.chat;
-    console.log(chat, "chat ");
+    console.log("data ", data)  
+    const { chat } = data.chat[0].chat;
+    console.log("chat ", chat);
+
     dispatch({ type: "FETCH_CHAT", payload: chat });
   } catch (error) {
     dispatch({ type: "CHAT_END_LOADING" });

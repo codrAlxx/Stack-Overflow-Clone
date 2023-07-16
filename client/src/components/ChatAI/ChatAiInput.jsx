@@ -23,7 +23,7 @@ export const ChatAiInput = () => {
       chatAi.isLoading && !error.message
         ? "loading..."
         : error.message
-        ? "try again"
+        ? "Ask Anything"
         : "send";
 
     setBtnValue(value);
