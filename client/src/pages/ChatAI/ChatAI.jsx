@@ -43,7 +43,6 @@ const ChatAI = () => {
           <div className="chat-message-container">
             <ChatViewer />
           </div>
-      
 
           <div
             className="go-down-container"

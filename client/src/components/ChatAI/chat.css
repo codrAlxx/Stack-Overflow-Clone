@@ -20,7 +20,8 @@
   
   .message-box {
     padding:0 10px 10px 0;
-
+    padding-top: 15px;
+    padding-left: 25px;
   }
   
   .p-10 {
