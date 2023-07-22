@@ -30,7 +30,7 @@ const QuestionsDetails = () => {
             if(Answer === ''){
                 alert('Enter an answer before submitting')
             } else{
-                dispatch(postAnswer({ id, noOfAnswers: answerLength + 1, answerBody: Answer, userAnswered: User.result.name }))
+                dispatch(postAnswer({ id, noOfAnswers: answerLength + 1, answerBody: Answer, userAnswered: User.name }))
             }
         }
     }
@@ -83,7 +83,7 @@ const QuestionsDetails = () => {
                                                 <div>
                                                     <button type='button' onClick={handleShare}>Share</button>
                                                     {
-                                                        User?.result?._id === question?.userId && (
+                                                        User?._id === question?.userId && (
                                                             <button type='button' onClick={handleDelete}>Delete</button>
                                                         )
                                                     }

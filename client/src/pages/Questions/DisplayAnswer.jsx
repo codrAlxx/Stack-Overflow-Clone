@@ -32,7 +32,7 @@ const DisplayAnswer = ({question}) => {
                             <div>
                                 <button type="button" onClick={handleShare}>Share</button>
                                 {
-                                    User?.result?._id === ans?.userId && (
+                                    User?._id === ans?.userId && (
                                         <button type='button' onClick={() => handleDelete(ans._id, question.noOfAnswers)}>Delete</button>
                                     )
                                 }

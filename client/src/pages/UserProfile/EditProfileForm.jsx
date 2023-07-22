@@ -4,21 +4,22 @@ import { updateProfile } from '../../actions/users'
 
 const EditProfileForm = ({ currentUser, setSwitch }) => {
 
-    const [name, setName] = useState(currentUser?.result?.name)
-    const [about, setAbout] = useState(currentUser?.result?.about)
+    const [name, setName] = useState(currentUser?.name)
+    const [about, setAbout] = useState(currentUser?.about)
+    const [id, setId] = useState(currentUser?._id)
     const [tags, setTags] = useState('')
     const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if(tags.length === 0){
-            dispatch(updateProfile( currentUser?.result?._id, { name, about, tags: currentUser?.result?.tags }))
+            dispatch(updateProfile( id, { name, about, tags: currentUser?.tags }))
         } else{
-            dispatch(updateProfile( currentUser?.result?._id, { name, about, tags }))
+            dispatch(updateProfile( id, { name, about, tags }))
         }
         setSwitch(false)
     }
-
+    console.log(id);
     return (
         <div>
             <h1 className='edit-profile-title'>

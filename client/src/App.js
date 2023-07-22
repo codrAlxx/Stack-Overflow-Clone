@@ -18,7 +18,7 @@ function App() {
     dispatch(fetchAllUsers());
 
     const user = JSON.parse(localStorage.getItem("Profile"));
-    if (user?.result) dispatch(setCurrentUser(user.result));
+    if (user) dispatch(setCurrentUser(user));
     dispatch(fetchChat());
   }, [dispatch]);
 

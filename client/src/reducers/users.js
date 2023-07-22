@@ -1,4 +1,7 @@
 const usersReducer = (states = [], action) => {
+    console.log("In user reducer")
+    console.log(states)
+    console.log(action.payload)
     switch (action.type) {
         case 'FETCH_USERS':
             return action.payload;    
