@@ -10,11 +10,11 @@ export const ChatCodeBox = ({ codeString }) => {
   return (
     <div className="chat-code-box">
       <div className="p-10">
-        <img
+        {/* <img
           src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Stack_Overflow_icon.svg"
           alt="stack overflow logo"
           width={"32"}
-        />
+        /> */}
       </div>
       <div className="code-box">
         <ReactMarkdown

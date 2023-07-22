@@ -33,7 +33,7 @@ const Navbar = () => {
           handleLogout();
         }
       }
-      // if (user?.result) dispatch(setCurrentUser(user.result));
+      if (user?.result) dispatch(setCurrentUser(user.result));
     }, [dispatch, handleLogout]);
   
     return (
