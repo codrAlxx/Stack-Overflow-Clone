@@ -95,7 +95,7 @@ export const getCurrentUserPosts = (id) => async (dispatch) => {
   try {
     dispatch({ type: "SOCIAL_START_LOADING" });
     const { data } = await api.getUserPosts(id);
-    console.log(data, "data in get current userPorst");
+    // console.log(data, "data in get current userPorst");
     dispatch({ type: "SET_POSTS", payload: data });
   } catch (error) {
     dispatch({
@@ -113,7 +113,7 @@ export const getPostById = (id) => async (dispatch) => {
   try {
     dispatch({ type: "SOCIAL_START_LOADING" });
     const { data } = await api.getPostById(id);
-    console.log(data, "data in get current userPorst");
+    // console.log(data, "data in get current userPorst");
     dispatch({ type: "SET_POSTS", payload: data });
   } catch (error) {
     dispatch({

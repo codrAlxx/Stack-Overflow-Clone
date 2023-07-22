@@ -11,7 +11,7 @@ export const ChatAiInput = () => {
 
   const handleSubmit = (e) => {
     dispatch(postChat(value));
-    console.log(value, "value");
+    // console.log(value, "value");
   };
 
   // useEffect(() => {

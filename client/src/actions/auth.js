@@ -4,11 +4,11 @@ import { setCurrentUser } from "./currentUser";
 
 export const signup = (authData, navigate) => async (dispatch) => {
   try {
-    console.log(authData)
+    // console.log(authData)
     const { data } = await api.signUp(authData);
-    console.log(data)
+    // console.log(data)
     dispatch({ type: "AUTH", data });
-    console.log(data, "login");
+    // console.log(data, "login");
     dispatch(setCurrentUser(data));
     navigate(-1);
   } catch (error) {
@@ -49,10 +49,10 @@ export const sendUserOtp = (data) => async (dispatch) => {
 export const verifyUserOtp = (OtpData) => async (dispatch) => {
   try {
     dispatch({ type: "START_LOADING" });
-    console.log("In verify OTP")
-    console.log(OtpData)
+    // console.log("In verify OTP")
+    // console.log(OtpData)
     const { data } = await api.verifyUser(OtpData);
-    console.log(data);
+    // console.log(data);
     dispatch({ type: "END_LOADING" });
     dispatch({ type: "UPDATE_AUTH_VERIFY", data: data.user });
     useLocalStorage(data.user);

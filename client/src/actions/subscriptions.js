@@ -18,7 +18,7 @@ export const handlePayment = (id, amount) => async (dispatch) => {
       order_id: order.id,
       handler: async function (response) {
         const result = await api.verifyOrder({ id, amount, response });
-        console.log(result);
+        // console.log(result);
         if (result.data.success !== true) {
           alert("The Plan has failed to activate!!! Contact us later.");
         } else {

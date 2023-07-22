@@ -11,7 +11,7 @@ export const fetchAllUsers = () => async (dispatch) => {
 export const updateProfile = (id, updateData) => async (dispatch) => {
   try {
     const { data } = await api.updateProfile(id, updateData);
-    console.log(data, "updateProfile");
+    // console.log(data, "updateProfile");
     dispatch({ type: "UPDATE_CURRENT_USER", payload: data.result });
   } catch (error) {
     console.log(error);

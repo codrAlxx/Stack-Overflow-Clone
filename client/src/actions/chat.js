@@ -4,7 +4,7 @@ export const postChat = (prompt) => async (dispatch) => {
     dispatch({ type: "RESET_ERROR" });
     dispatch({ type: "CHAT_START_LOADING" });
     const { data } = await api.postChat(prompt);
-    console.log(data, "chat ");
+    // console.log(data, "chat ");
 
     dispatch({ type: "FETCH_CHAT", payload: data.chat.chat });
   } catch (error) {
@@ -18,11 +18,11 @@ export const fetchChat = () => async (dispatch) => {
   try {
     dispatch({ type: "RESET_ERROR" });
     dispatch({ type: "CHAT_START_LOADING" });
-    console.log("In fectch chat")
+    // console.log("In fectch chat")
     const { data } = await api.getChat();
-    console.log("data ", data)  
+    // console.log("data ", data)  
     const { chat } = data.chat[0].chat;
-    console.log("chat ", chat);
+    // console.log("chat ", chat);
 
     dispatch({ type: "FETCH_CHAT", payload: chat });
   } catch (error) {
