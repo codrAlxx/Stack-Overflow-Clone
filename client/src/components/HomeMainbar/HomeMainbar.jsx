@@ -37,12 +37,12 @@ const HomeMainbar = () => {
                 }
                 <button onClick={checkAuth} className='ask-btn'>Ask Question</button>
             </div>
-            <div>
+            <div  style={{ padding: "12px"}}>
                 {
                     questionsList.data === null ?
                     <h1>Loading...</h1> :
                     <>
-                        <p>{ questionsList.data.length } questions</p>
+                        <p style={{ padding: "12px"}}>{ questionsList.data.length } questions</p>
                         <QuestionList questionsList={questionsList.data} />
                     </>
                 }
